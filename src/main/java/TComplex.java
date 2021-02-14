@@ -36,10 +36,21 @@ public class TComplex extends Complex {
 
     @Override
     public Complex add(Complex c) {
-        this.mod += c.mod();
-        this.arg += c.arg();
+        AComplex temp = new AComplex(this);
+        temp.add(c);
+        this.mod = temp.mod();
+        this.arg = temp.arg();
         return this;
+    }
 
+    @Override
+    public Complex dec(Complex c) {
+        return this.add(new AComplex(-c.real(), -c.im()));
+//        AComplex temp = new AComplex(this);
+//        temp.dec(c);
+//        this.mod = temp.mod();
+//        this.arg = temp.arg();
+//        return this;
     }
 
     @Override

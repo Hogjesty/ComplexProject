@@ -58,4 +58,8 @@ public class AComplex extends Complex {
     public Complex getClone() {
         return new AComplex(this);
     }
+
+    public String toString() {
+        return "z = " + real + " + (" + im + "*i)";
+    }
 }
