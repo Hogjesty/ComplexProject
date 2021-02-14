@@ -3,12 +3,12 @@ public class AComplex extends Complex {
     private double real;
     private double im;
 
-    public AComplex(double real, double im){
+    public AComplex(double real, double im) {
         this.real = real;
         this.im = im;
     }
 
-    public AComplex(Complex c){
+    public AComplex(Complex c) {
         this.real = c.real();
         this.im = c.im();
     }
@@ -25,18 +25,18 @@ public class AComplex extends Complex {
 
     @Override
     public double mod() {
-        return Math.sqrt(real*real + im*im);
+        return Math.sqrt(real * real + im * im);
     }
 
     @Override
     public double arg() {
-        if(real == 0){
-            if(im < 0)
+        if (real == 0) {
+            if (im < 0)
                 return 3 * Math.PI / 2;
             else
                 return Math.PI / 2;
         }
-        return Math.atan(im/real);
+        return Math.atan(im / real);
     }
 
     @Override
@@ -44,6 +44,14 @@ public class AComplex extends Complex {
         this.real += c.real();
         this.im += c.im();
         return this;
+    }
+
+    @Override
+    public Complex dec(Complex c) {
+        return this.add(new AComplex(-c.real(), -c.im()));
+//        this.real -= c.real();
+//        this.im -= c.im();
+//        return this;
     }
 
     @Override

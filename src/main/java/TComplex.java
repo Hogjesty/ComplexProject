@@ -1,18 +1,17 @@
 
-public class TComplex extends Complex{
+public class TComplex extends Complex {
     private double mod;
     private double arg;
 
-    public TComplex (double mod, double arg) {
+    public TComplex(double mod, double arg) {
         this.mod = mod;
         this.arg = arg;
     }
 
-    public TComplex (Complex c) {
+    public TComplex(Complex c) {
         this.mod = c.mod();
         this.arg = c.arg();
     }
-
 
 
     @Override
@@ -46,5 +45,9 @@ public class TComplex extends Complex{
     @Override
     public Complex getClone() {
         return new TComplex(this);
+    }
+
+    public String toString() {
+        return "z = " + mod + "*(cos(" + arg + ") + i*sin(" + arg + "))";
     }
 }
