@@ -54,6 +54,18 @@ public class TComplex extends Complex {
     }
 
     @Override
+    public Complex mul(Complex c) {
+        this.arg += c.arg();
+        this.mod *= c.mod();
+        return this;
+    }
+
+    @Override
+    public Complex div(Complex c) {
+        return this.mul(new TComplex(1/c.mod(), -c.arg()));
+    }
+
+    @Override
     public Complex getClone() {
         return new TComplex(this);
     }
